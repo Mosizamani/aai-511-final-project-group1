@@ -104,7 +104,7 @@ Additional MIDI files may be incorporated only for these four composers if neede
 ## Deliverables
 
 * Jupyter Notebook containing the complete implementation
-* APA 7 Project Report
+* Project Report
 
 ## References
 
