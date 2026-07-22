@@ -1,0 +1,65 @@
+# Extracted Features for Composer Classification
+
+Generated: 20260716_230335
+
+## Files
+
+### 1. LSTM/Transformer Features (`lstm_features_20260716_230335.npz`)
+- **X_train**: (69231, 100, 3) - Training sequences (sequences, notes, features)
+- **X_dev**: (4945, 100, 3) - Development sequences
+- **X_test**: (4946, 100, 3) - Test sequences
+- **y_train**: (69231,) - Training labels
+- **y_dev**: (4945,) - Development labels
+- **y_test**: (4946,) - Test labels
+
+**Features per note**: 3 (pitch, duration, velocity)
+**Sequence length**: 100 notes
+
+### 2. CNN Features (`cnn_features_20260716_230335.npz`)
+- **X_train_cnn**: (336, 500, 88, 1) - Training piano rolls (samples, time, keys, channels)
+- **X_dev_cnn**: (72, 500, 88, 1) - Development piano rolls
+- **X_test_cnn**: (72, 500, 88, 1) - Test piano rolls
+- **y_train_cnn**: (336,) - Training labels
+- **y_dev_cnn**: (72,) - Development labels
+- **y_test_cnn**: (72,) - Test labels
+
+**Piano roll shape**: 500 time steps × 88 piano keys × 1 channel
+**Frame rate**: 16 Hz
+
+### 3. Metadata (`metadata_20260716_230335.pkl`)
+- Composer names and label mappings
+- Configuration parameters
+- Feature extraction settings
+
+### 4. Summary Statistics (`summary_statistics_20260716_230335.csv`)
+- Per-file statistics for all processed MIDI files
+- Duration, tempo, instrument counts, etc.
+
+## Composers
+0: Bach, 1: Beethoven, 2: Chopin, 3: Mozart
+
+## Usage
+
+### Load LSTM/Transformer features:
+```python
+import numpy as np
+data = np.load('lstm_features_20260716_230335.npz')
+X_train = data['X_train']
+y_train = data['y_train']
+```
+
+### Load CNN features:
+```python
+import numpy as np
+data = np.load('cnn_features_20260716_230335.npz')
+X_train_cnn = data['X_train_cnn']
+y_train_cnn = data['y_train_cnn']
+```
+
+### Load metadata:
+```python
+import pickle
+with open('metadata_20260716_230335.pkl', 'rb') as f:
+    metadata = pickle.load(f)
+composer_to_label = metadata['composer_to_label']
+```
