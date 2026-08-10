@@ -4,7 +4,7 @@ This project was developed for **AAI-511: Deep Learning** in the **Applied Artif
 
 ## Project Status
 
-**In Progress**
+**Complete**
 
 ## Project Overview
 
